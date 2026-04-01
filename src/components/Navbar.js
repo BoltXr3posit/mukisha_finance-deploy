@@ -76,15 +76,19 @@ export default function Navbar() {
       {/* Action Buttons (Right Side) */}
       <div className="flex items-center space-x-6">
         
-        {/* Sends returning users to the login screen */}
+        {/* Desktop-only text link */}
         <Link href="/login" className="hidden md:block font-bold text-slate-600 hover:text-[#60CF38] transition">
           Sign In
         </Link>
 
-        {/* Sends new users to the login screen as well (for now) */}
+        {/* The Primary Button (Responsive Text) */}
         <Link href="/login">
           <button className="bg-[#60CF38] text-white px-6 py-2 rounded-lg font-bold shadow hover:bg-[#4eac2c] transition">
-            Apply for a Loan
+            {/* Shows ONLY on mobile */}
+            <span className="md:hidden">Sign In</span>
+            
+            {/* Shows ONLY on desktop/tablet */}
+            <span className="hidden md:inline">Apply for a Loan</span>
           </button>
         </Link>
         
