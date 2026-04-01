@@ -14,25 +14,21 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault(); 
     setIsLoading(true);
-    setError(null); // Clear any previous errors
+    setError(null); 
 
     try {
-      // The real authentication call to Supabase
       const { data, error: authError } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
       });
 
-      // If the password is wrong or user doesn't exist, throw the error
       if (authError) throw authError;
 
-      // If successful, route them to the dashboard!
       if (data.user) {
         router.push('/dashboard');
       }
 
     } catch (err) {
-      // Display the error message to the user (e.g., "Invalid login credentials")
       setError(err.message);
     } finally {
       setIsLoading(false);
@@ -62,7 +58,6 @@ export default function LoginPage() {
           
           <form className="space-y-6" onSubmit={handleLogin}>
             
-            {/* Error Message Display */}
             {error && (
               <div className="bg-rose-50 text-rose-500 p-3 rounded-lg text-sm font-bold text-center">
                 {error}
@@ -74,10 +69,11 @@ export default function LoginPage() {
               <div className="mt-1">
                 <input 
                   type="email" 
+                  autoComplete="email"
                   required 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm placeholder-slate-400 focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] sm:text-sm" 
+                  className="appearance-none block w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm placeholder-slate-400 focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] sm:text-sm text-slate-900 bg-white" 
                   placeholder="you@example.com"
                 />
               </div>
@@ -88,10 +84,11 @@ export default function LoginPage() {
               <div className="mt-1">
                 <input 
                   type="password" 
+                  autoComplete="current-password"
                   required 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm placeholder-slate-400 focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] sm:text-sm" 
+                  className="appearance-none block w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm placeholder-slate-400 focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] sm:text-sm text-slate-900 bg-white" 
                   placeholder="••••••••"
                 />
               </div>
