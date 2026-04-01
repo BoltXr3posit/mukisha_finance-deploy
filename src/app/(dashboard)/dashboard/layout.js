@@ -2,12 +2,18 @@ import Sidebar from '@/components/Sidebar';
 
 export default function DashboardLayout({ children }) {
   return (
-    <div className="flex min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
+      
+      {/* The Sidebar Component */}
       <Sidebar />
-      {/* The 'ml-64' pushes the main content to the right so the sidebar doesn't cover it */}
-      <div className="flex-1 ml-64 p-10">
+
+      {/* The Main Content Area */}
+      {/* FIX: Changed pl-64 to md:pl-64 so it only pushes right on desktop. 
+          Added pt-20 on mobile so the hamburger button doesn't cover your text! */}
+      <div className="flex-1 md:pl-64 pt-20 md:pt-0 w-full overflow-x-hidden">
         {children}
       </div>
+
     </div>
   );
 }
