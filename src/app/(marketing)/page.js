@@ -62,24 +62,27 @@ export default function Home() {
             <div className="w-24 h-24 bg-[#60CF38] rounded-full flex items-center justify-center text-4xl mb-6 shadow-lg shadow-[#60CF38]/20">
               📱
             </div>
-            <h3 className="text-xl font-bold mb-3">Easy Application</h3>
-            <p className="text-slate-500">Apply for a loan in minutes. No paperwork required, entirely online.</p>
+            {/* FIXED: Added text-slate-900 to force dark text on all screens */}
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Easy Application</h3>
+            <p className="text-slate-600">Apply for a loan in minutes. No paperwork required, entirely online.</p>
           </div>
 
           <div className="flex flex-col items-center">
             <div className="w-24 h-24 bg-[#60CF38] rounded-full flex items-center justify-center text-4xl mb-6 shadow-lg shadow-[#60CF38]/20">
               ⚙️
             </div>
-            <h3 className="text-xl font-bold mb-3">Flexible Options</h3>
-            <p className="text-slate-500">Select your loan amount and repayment terms that suit you.</p>
+            {/* FIXED: Added text-slate-900 to force dark text on all screens */}
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Flexible Options</h3>
+            <p className="text-slate-600">Select your loan amount and repayment terms that suit you.</p>
           </div>
 
           <div className="flex flex-col items-center">
             <div className="w-24 h-24 bg-[#60CF38] rounded-full flex items-center justify-center text-4xl mb-6 shadow-lg shadow-[#60CF38]/20">
               💸
             </div>
-            <h3 className="text-xl font-bold mb-3">Smart Disbursement</h3>
-            <p className="text-slate-500">Money is sent straight to your mobile money or bank account.</p>
+            {/* FIXED: Added text-slate-900 to force dark text on all screens */}
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Smart Disbursement</h3>
+            <p className="text-slate-600">Money is sent straight to your mobile money or bank account.</p>
           </div>
 
         </div>
@@ -112,7 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* SECTION 3: The FAQ */}
+      {/* SECTION 3: The FAQ */}
       <FaqSection />
 
     </main>
