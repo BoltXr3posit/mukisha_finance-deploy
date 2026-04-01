@@ -73,11 +73,23 @@ export default function Navbar() {
         <Link href="/about" className="hover:text-[#60CF38] transition py-2">About</Link>
       </div>
 
-      {/* Call to Action Button */}
-      <button className="bg-[#60CF38] text-white px-6 py-2 rounded-lg font-bold shadow hover:bg-[#5a851d] transition">
-        Apply for a Loan
-      </button>
+      {/* Action Buttons (Right Side) */}
+      <div className="flex items-center space-x-6">
+        
+        {/* Sends returning users to the login screen */}
+        <Link href="/login" className="hidden md:block font-bold text-slate-600 hover:text-[#60CF38] transition">
+          Sign In
+        </Link>
 
+        {/* Sends new users to the login screen as well (for now) */}
+        <Link href="/login">
+          <button className="bg-[#60CF38] text-white px-6 py-2 rounded-lg font-bold shadow hover:bg-[#4eac2c] transition">
+            Apply for a Loan
+          </button>
+        </Link>
+        
+      </div>
+            
     </nav>
   );
 }
