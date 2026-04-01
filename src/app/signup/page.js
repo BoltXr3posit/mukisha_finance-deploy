@@ -98,7 +98,7 @@ export default function SignUpPage() {
               </div>
             )}
 
-            {/* NEW: Success Message Display */}
+            {/* Success Message Display */}
             {successMsg && (
               <div className="bg-[#60CF38]/10 text-[#4eac2c] p-3 rounded-lg text-sm font-bold text-center border border-[#60CF38]/20 animate-in fade-in slide-in-from-top-2">
                 {successMsg}
@@ -107,33 +107,77 @@ export default function SignUpPage() {
 
             <div>
               <label className="block text-sm font-bold text-slate-700 mb-1">Full Name</label>
-              <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38]" placeholder="John Doe" />
+              <input 
+                type="text" 
+                name="fullName" 
+                autoComplete="name"
+                required 
+                value={formData.fullName} 
+                onChange={handleChange} 
+                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] text-slate-900 bg-white" 
+                placeholder="John Doe" 
+              />
             </div>
 
             <div>
               <label className="block text-sm font-bold text-slate-700 mb-1">Email Address</label>
-              <input type="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38]" placeholder="john@example.com" />
+              <input 
+                type="email" 
+                name="email" 
+                autoComplete="email"
+                required 
+                value={formData.email} 
+                onChange={handleChange} 
+                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] text-slate-900 bg-white" 
+                placeholder="john@example.com" 
+              />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Phone Number</label>
-                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38]" placeholder="0970000000" />
+                <input 
+                  type="tel" 
+                  name="phone" 
+                  autoComplete="tel"
+                  required 
+                  value={formData.phone} 
+                  onChange={handleChange} 
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] text-slate-900 bg-white" 
+                  placeholder="0970000000" 
+                />
               </div>
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">NRC Number</label>
-                <input type="text" name="nrc" required value={formData.nrc} onChange={handleChange} className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38]" placeholder="123456/78/9" />
+                <input 
+                  type="text" 
+                  name="nrc" 
+                  required 
+                  value={formData.nrc} 
+                  onChange={handleChange} 
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] text-slate-900 bg-white" 
+                  placeholder="123456/78/9" 
+                />
               </div>
             </div>
 
             <div>
               <label className="block text-sm font-bold text-slate-700 mb-1">Password</label>
-              <input type="password" name="password" required value={formData.password} onChange={handleChange} className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38]" placeholder="Create a strong password" />
+              <input 
+                type="password" 
+                name="password"
+                autoComplete="new-password" 
+                required 
+                value={formData.password} 
+                onChange={handleChange} 
+                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-[#60CF38] focus:border-[#60CF38] text-slate-900 bg-white" 
+                placeholder="Create a strong password" 
+              />
             </div>
 
             <button 
               type="submit" 
-              disabled={isLoading || successMsg} // Disable button while redirecting
+              disabled={isLoading || successMsg}
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-bold text-white bg-[#60CF38] hover:bg-[#4eac2c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#60CF38] disabled:opacity-70 transition-all mt-6"
             >
               {isLoading && !successMsg ? 'Creating Account...' : successMsg ? 'Redirecting...' : 'Create Account'}
