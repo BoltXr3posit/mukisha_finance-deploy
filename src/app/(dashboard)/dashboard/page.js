@@ -1,5 +1,12 @@
+'use client';
+import { useState } from 'react';
 import RecentActivityTable from '@/components/RecentActivityTable';
+import ApplicationWizard from '@/components/ApplicationWizard'; // <-- ADD THIS
+
 export default function DashboardHome() {
+  // Add this state to track if the modal is open or closed
+  const [isWizardOpen, setIsWizardOpen] = useState(false);
+
   return (
     <main>
       <header className="mb-10 flex justify-between items-end">
@@ -7,7 +14,11 @@ export default function DashboardHome() {
           <h1 className="text-3xl font-black text-slate-900 mb-2">Welcome back, John!</h1>
           <p className="text-slate-500">Here is what's happening with your finances today.</p>
         </div>
-        <button className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-slate-800 transition">
+
+        <button 
+          onClick={() => setIsWizardOpen(true)} 
+          className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-slate-800 transition"
+        >
           + New Application
         </button>
       </header>
@@ -40,6 +51,11 @@ export default function DashboardHome() {
         <RecentActivityTable />
         
       </div>
+
+      {/* If isWizardOpen is true, render the Wizard. Pass down a function to close it. */}
+      {isWizardOpen && (
+        <ApplicationWizard onClose={() => setIsWizardOpen(false)} />
+      )}
     </main>
   );
 }
